@@ -4,16 +4,17 @@ Welcome to my **Python Mini-Projects** repository! This collection features a va
 
 ## Table of Contents 📋
 - [Projects](#projects)
-  - [Hangman](#Hangman.py)
-  - [Madlib](#MadLib.py)
-  - [Mastermind](#MasterMind.py)
-  - [Number Guessing Game](#Number-Guessing-Game.py)
-  - [Self-Care Randomizer](#Self-Care_Randomizer.py)
-  - [Word Guessing Game](#Word-Guessing-Game.py)
-    
+  - [Hangman](#hangman)
+  - [Madlib](#madlib)
+  - [Mastermind](#mastermind)
+  - [Number Guessing Game](#number-guessing-game)
+  - [Self-Care Randomizer](#self-care-randomizer)
+  - [Word Guessing Game](#word-guessing-game)
+  
 - [How to Run the Projects](#how-to-run-the-projects)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
+
 
 ## Projects 🎮
 
