@@ -72,7 +72,7 @@ A simple game where the player tries to guess the randomly chosen word letter by
 1. Clone the repository:
    ```bash
    git clone https://github.com/DivyaBGowda484/PythonProjects.git
-   cd python-mini-projects
+   cd PythonProjects
    
 2. Install any required dependencies.
 
