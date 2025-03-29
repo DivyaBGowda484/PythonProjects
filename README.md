@@ -4,17 +4,16 @@ Welcome to my **Python Mini-Projects** repository! This collection features a va
 
 ## Table of Contents 📋
 - [Projects](#projects)
-  - [Hangman](#hangman)
-  - [Madlib](#madlib)
-  - [Mastermind](#mastermind)
-  - [Number Guessing Game](#number-guessing-game)
-  - [Self-Care Randomizer](#self-care-randomizer)
-  - [Word Guessing Game](#word-guessing-game)
+  - [Hangman](#Hangman.py)
+  - [Madlib](#MadLib.py)
+  - [Mastermind](#MasterMind.py)
+  - [Number Guessing Game](#Number-Guessing-Game.py)
+  - [Self-Care Randomizer](#Self-Care_Randomizer.py)
+  - [Word Guessing Game](#Word-Guessing-Game.py)
     
 - [How to Run the Projects](#how-to-run-the-projects)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Projects 🎮
 
@@ -71,10 +70,10 @@ A simple game where the player tries to guess the randomly chosen word letter by
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/python-mini-projects.git
+   git clone https://github.com/DivyaBGowda484/PythonProjects.git
    cd python-mini-projects
    
-2. Install any required dependencies (if applicable).
+2. Install any required dependencies.
 
 3. Run each project using Python:
    python hangman.py
@@ -91,5 +90,3 @@ Technologies Used 💻
 Contributing 🤝
 Contributions are welcome! If you'd like to improve any of the projects, feel free to submit a pull request. Make sure your code follows best practices and is well-commented.
 
-License 📄
-This repository is licensed under the MIT License. See the LICENSE file for more information.
