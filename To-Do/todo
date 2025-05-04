@@ -1,0 +1,87 @@
+import os
+import json
+
+# Define file path to save todos
+TODO_FILE = "todos.json"
+
+# Load todos from the file
+def load_todos():
+    if os.path.exists(TODO_FILE):
+        with open(TODO_FILE, 'r') as file:
+            return json.load(file)
+    return []
+
+# Save todos to the file
+def save_todos(todos):
+    with open(TODO_FILE, 'w') as file:
+        json.dump(todos, file)
+
+# Display all todos
+def display_todos(todos):
+    if not todos:
+        print("No to-dos found.")
+    for i, todo in enumerate(todos, 1):
+        status = "Done" if todo['done'] else "Pending"
+        print(f"{i}. {todo['task']} - {status}")
+
+# Add a new todo
+def add_todo():
+    task = input("Enter the task: ")
+    todos = load_todos()
+    todos.append({"task": task, "done": False})
+    save_todos(todos)
+    print(f"'{task}' has been added to your to-do list.")
+
+# Mark a todo as done
+def mark_done():
+    display_todos(load_todos())
+    index = int(input("Enter the task number to mark as done: ")) - 1
+    todos = load_todos()
+    if 0 <= index < len(todos):
+        todos[index]['done'] = True
+        save_todos(todos)
+        print(f"Task '{todos[index]['task']}' marked as done.")
+    else:
+        print("Invalid task number.")
+
+# Delete a todo
+def delete_todo():
+    display_todos(load_todos())
+    index = int(input("Enter the task number to delete: ")) - 1
+    todos = load_todos()
+    if 0 <= index < len(todos):
+        print(f"Task '{todos[index]['task']}' has been deleted.")
+        del todos[index]
+        save_todos(todos)
+    else:
+        print("Invalid task number.")
+
+# Main function to display menu and take user input
+def main():
+    while True:
+        print("\nTo-Do CLI App")
+        print("1. View To-Dos")
+        print("2. Add To-Do")
+        print("3. Mark To-Do as Done")
+        print("4. Delete To-Do")
+        print("5. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            todos = load_todos()
+            display_todos(todos)
+        elif choice == '2':
+            add_todo()
+        elif choice == '3':
+            mark_done()
+        elif choice == '4':
+            delete_todo()
+        elif choice == '5':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, please try again.")
+
+if __name__ == "__main__":
+    main()
