@@ -1,0 +1,58 @@
+def initialize_file():
+    try:
+        with open('expenses.txt', 'x') as f:
+            f.write("Date,Category,Amount,Description\n")
+    except FileExistsError:
+        pass
+
+def add_expense():
+    date = input("Enter date (YYYY-MM-DD): ")
+    category = input("Enter category: ")
+    amount = input("Enter amount: ")
+    description = input("Enter description: ")
+    
+    with open('expenses.txt', 'a') as f:
+        f.write(f"{date},{category},{amount},{description}\n")
+    print("Expense added successfully.")
+
+def view_expenses():
+    with open('expenses.txt', 'r') as f:
+        for line in f:
+            print(line.strip())
+
+def total_expense():
+    total = 0
+    with open('expenses.txt', 'r') as f:
+        next(f)  # Skip header
+        for line in f:
+            parts = line.strip().split(',')
+            if len(parts) >= 3:
+                try:
+                    total += float(parts[2])
+                except ValueError:
+                    continue
+    print(f"Total Expenses: ₹{total}")
+
+def main():
+    initialize_file()
+    while True:
+        print("\n---- Expense Tracker ----")
+        print("1. Add Expense")
+        print("2. View Expenses")
+        print("3. Total Expenses")
+        print("4. Exit")
+        choice = input("Choose an option: ")
+
+        if choice == '1':
+            add_expense()
+        elif choice == '2':
+            view_expenses()
+        elif choice == '3':
+            total_expense()
+        elif choice == '4':
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+if __name__ == "__main__":
+    main()
