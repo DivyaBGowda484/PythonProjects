@@ -24,6 +24,10 @@ def load_expenses():
     except FileNotFoundError:
         return pd.DataFrame(columns=["Date", "Category", "Amount", "Description"])
 
+# Save updated expenses
+def save_expenses(df):
+    df.to_csv(FILE, index=False)
+
 # Calculate total expenses
 def total_expense(df):
     return df["Amount"].sum() if not df.empty else 0
@@ -51,14 +55,25 @@ if menu == "➕ Add Expense":
         else:
             st.error("❌ Enter a valid amount.")
 
-# --- View Expenses ---
+# --- View Expenses with Delete Option ---
 elif menu == "📋 View Expenses":
     st.subheader("All Expenses")
     df = load_expenses()
+    
     if df.empty:
         st.info("No expenses recorded yet.")
     else:
-        st.dataframe(df)
+        df_display = df.copy()
+        df_display.index.name = 'Index'
+        st.dataframe(df_display)
+
+        delete_index = st.number_input("Enter the index of the row to delete:", min_value=0, max_value=len(df)-1, step=1)
+        if st.button("Delete Selected Expense"):
+            df.drop(index=delete_index, inplace=True)
+            df.reset_index(drop=True, inplace=True)
+            save_expenses(df)
+            st.success("🗑️ Expense deleted successfully!")
+            st.experimental_rerun()
 
 # --- Expense Summary ---
 elif menu == "📊 Expense Summary":
@@ -76,4 +91,3 @@ elif menu == "📊 Expense Summary":
         monthly_summary = df.groupby(df["Date"].dt.to_period("M"))["Amount"].sum().reset_index()
         monthly_summary["Date"] = monthly_summary["Date"].astype(str)
         st.line_chart(monthly_summary.set_index("Date"))
-
