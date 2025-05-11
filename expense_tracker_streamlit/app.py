@@ -73,7 +73,7 @@ elif menu == "📋 View Expenses":
             df.reset_index(drop=True, inplace=True)
             save_expenses(df)
             st.success("🗑️ Expense deleted successfully!")
-            st.experimental_rerun()
+            st.rerun()
 
 # --- Expense Summary ---
 elif menu == "📊 Expense Summary":
