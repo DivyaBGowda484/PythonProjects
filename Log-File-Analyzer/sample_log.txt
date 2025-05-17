@@ -1,0 +1,6 @@
+2024-05-17 10:15:32 INFO User logged in from 192.168.1.10
+2024-05-17 10:17:01 ERROR Failed to connect to DB
+2024-05-17 10:18:22 WARNING Disk usage at 85%
+2024-05-17 10:20:05 INFO User logged out from 192.168.1.10
+2024-05-17 10:22:11 ERROR Timeout while connecting to API
+2024-05-17 10:25:42 INFO User logged in from 192.168.1.15
